@@ -1,8 +1,11 @@
 import { Task } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const loadTasks = () => {
-  const tasks = localStorage.getItem("taskStore");
-  return tasks ? JSON.parse(tasks) : [];
+  if (typeof window !== "undefined") {
+    const tasks = localStorage.getItem("taskStore");
+    return tasks ? JSON.parse(tasks) : [];
+  }
+  return [];
 };
 
 interface TaskSlice {

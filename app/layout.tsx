@@ -17,8 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`bg-slate-100 ${inter.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`bg-slate-100 ${inter.className}`}
+        suppressHydrationWarning
+      >
         <StoreProvider>
           <Suspense fallback={<>Loading...</>}>
             <main className="container mx-auto">{children}</main>

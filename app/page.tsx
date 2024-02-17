@@ -1,5 +1,7 @@
-import TaskList from "@/components/task/TaskList";
-
+import dynamic from "next/dynamic";
+const TaskList = dynamic(() => import("@/components/task/TaskList"), {
+  ssr: false,
+});
 const Home = async ({}) => {
   return (
     <div className="h-screen">
